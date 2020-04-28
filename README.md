@@ -1,6 +1,10 @@
 # Como criar API com Node.js
 
 ## Lista passo a passo
+* **Para rodar esse repositório é só clonar, e depois de feito, dentro da pasta raíz digitar esse comando:**
+```bash
+npm install
+```
 
 1. Criar o arquivo package
 ```bash 
@@ -19,12 +23,17 @@ npm install express
 npm install -g -D nodemon
 ```
 
-4. Instalar o MongoDB
+4. Para rodar o servidor Node do arquivo app.js
+```bash
+nodemon app.js
+```
+
+5. Instalar o MongoDB
 ```bash
 npm install --save mongodb
 ```
 
-5. Instalar o Mongoose. O Mongoose traduz os dados do banco de dados para objetos Javascript para que possam ser utilizados por sua aplicação.
+6. Instalar o Mongoose. O Mongoose traduz os dados do banco de dados para objetos Javascript para que possam ser utilizados por sua aplicação.
 ```bash
 npm install --save mongoose
 ```

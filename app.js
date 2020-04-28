@@ -18,7 +18,14 @@ mongoose.connect('mongodb://localhost/teste', {
 })
 
 app.get('/', (req, res) => {
-    return res.json({ titulo: 'Como criar a API' })
+    Artigo.find({}).then((artigo) => {
+        return res.json(artigo)
+    }).catch((err) => {
+        return res.status(400).json({
+            error: true,
+            message: 'Nenhum artigo encontrado!'
+        })
+    })
 })
 
 app.post('/artigo', (req, res) => {
