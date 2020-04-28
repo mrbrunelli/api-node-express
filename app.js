@@ -17,6 +17,7 @@ mongoose.connect('mongodb://localhost/teste', {
     console.log('Erro ao conectar com o MongoDB!')
 })
 
+// Listar todos os artigos cadastrados
 app.get('/', (req, res) => {
     Artigo.find({}).then((artigo) => {
         return res.json(artigo)
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
     })
 })
 
+// Listar artigo por id
 app.get('/artigo/:id', (req, res) => {
     Artigo.findOne({ _id: req.params.id }).then((artigo) => {
         return res.json(artigo)
@@ -39,6 +41,7 @@ app.get('/artigo/:id', (req, res) => {
     })
 })
 
+// Cadastrar um artigo
 app.post('/artigo', (req, res) => {
     const artigo = Artigo.create(req.body, (err) => {
         if (err) return res.status(400).json({
@@ -54,6 +57,7 @@ app.post('/artigo', (req, res) => {
     })
 })
 
+// Atualizar um artigo
 app.put('/artigo/:id', (req, res) => {
     const artigo = Artigo.updateOne({ _id: req.params.id }, req.body, (err) => {
         if (err) return res.status(400).json({
@@ -64,6 +68,20 @@ app.put('/artigo/:id', (req, res) => {
         return res.json({
             error: false,
             message: 'Artigo editado com sucesso!'
+        })
+    })
+})
+
+app.delete('/artigo/:id', (req, res) => {
+    const artigo = Artigo.deleteOne({ _id: req.params.id }, (err) => {
+        if (err) return res.status(400).json({
+            error: true,
+            message: 'Error: Artigo não foi deletado!'
+        })
+
+        return res.json({
+            error: false,
+            message: 'Artigo deletado com sucesso!'
         })
     })
 })
