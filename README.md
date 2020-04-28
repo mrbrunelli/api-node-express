@@ -41,3 +41,9 @@ npm install --save mongodb
 ```bash
 npm install --save mongoose
 ```
+
+7. Subir container com MongoDB já configurado
+```bash
+# O banco estará disponível na porta 27017
+docker-compose up -d
+```

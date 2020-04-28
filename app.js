@@ -46,9 +46,24 @@ app.post('/artigo', (req, res) => {
             message: "Error: Artigo não foi cadastrado com sucesso!"
         })
 
+        // Não preciso retornar o status 200, pois caso dê sucesso ele já faz isso sozinho
         return res.status(200).json({
             error: false,
             message: "Artigo cadastrado com sucesso!"
+        })
+    })
+})
+
+app.put('/artigo/:id', (req, res) => {
+    const artigo = Artigo.updateOne({ _id: req.params.id }, req.body, (err) => {
+        if (err) return res.status(400).json({
+            error: true,
+            message: 'Error: Artigo não foi editado!'
+        })
+
+        return res.json({
+            error: false,
+            message: 'Artigo editado com sucesso!'
         })
     })
 })
