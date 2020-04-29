@@ -66,7 +66,7 @@ app.post('/artigo', (req, res) => {
     })
 })
 
-// Atualizar um artigo
+// Atualizar um artigo pela id
 app.put('/artigo/:id', (req, res) => {
     const artigo = Artigo.updateOne({ _id: req.params.id }, req.body, (err) => {
         if (err) return res.status(400).json({
@@ -81,6 +81,7 @@ app.put('/artigo/:id', (req, res) => {
     })
 })
 
+// Deletar um artigo pela id
 app.delete('/artigo/:id', (req, res) => {
     const artigo = Artigo.deleteOne({ _id: req.params.id }, (err) => {
         if (err) return res.status(400).json({
@@ -95,6 +96,7 @@ app.delete('/artigo/:id', (req, res) => {
     })
 })
 
+// Ouvir a aplicação na porta 8080
 app.listen(8080, () => {
     console.log('Servidor iniciado na porta 8080: http://localhost:8080/')
 })
