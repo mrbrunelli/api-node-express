@@ -10,6 +10,7 @@ npm install
 nodemon app.js
 ```
 
+## Criando do zero
 1. Criar o arquivo package
 ```bash 
 npm init 
@@ -47,7 +48,8 @@ npm install --save mongoose
 npm install --save cors
 ```
 
-8. Subir container com MongoDB já configurado
+## Subindo Container
+1. Subir container com MongoDB já configurado
 ```bash
 # O banco estará disponível na porta 27017
 docker-compose up -d
