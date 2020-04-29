@@ -42,7 +42,12 @@ npm install --save mongodb
 npm install --save mongoose
 ```
 
-7. Subir container com MongoDB já configurado
+7. Instalar o Cors para limitar quem é que pode consumir a nossa API
+```bash
+npm install --save cors
+```
+
+8. Subir container com MongoDB já configurado
 ```bash
 # O banco estará disponível na porta 27017
 docker-compose up -d
