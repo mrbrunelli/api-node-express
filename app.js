@@ -27,7 +27,7 @@ mongoose.connect('mongodb://localhost/teste', {
 })
 
 // Listar todos os artigos cadastrados
-app.get('/', (req, res) => {
+app.get('/artigo', (req, res) => {
     Artigo.find({}).then((artigo) => {
         return res.json(artigo)
     }).catch((err) => {
